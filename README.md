@@ -1,5 +1,9 @@
 <h1 align="center"> Landing Page para Equipe de atendimento Psicológico  </h1>
 
+<p align="center">
+A landing page da ampata é um projeto realizado em next.js que consome uma API criada no strapi do repositório: (https://github.com/Jahomme/ampara-strapi-base).  <br/>
+
+</p>
 
 <p align="center">
   <a href="#-tecnologias">Tecnologias</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -19,6 +23,7 @@ Esse projeto foi desenvolvido com as seguintes tecnologias:
 - JavaScript
 - TypeScript
 - HTML e CSS
+- Strapi
 - Git e Github
 
 ## 💻 Projeto
