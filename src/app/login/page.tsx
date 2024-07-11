@@ -58,7 +58,7 @@ export default function Login() {
                 <FaFacebookF size={20} />
               </a>
             </SocialIcons>
-            <span>ou use o seu email senha</span>
+            <span>use o seu email senha para acessar</span>
             <input type="email" placeholder="Email" />
             <input type="password" placeholder="Senha" />
             <a href="#">Esqueceu Sua Senha?</a>

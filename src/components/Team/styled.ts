@@ -2,12 +2,20 @@ import styled from 'styled-components';
 import breakpoints from '../../styles/breakpoints';
 import Image from 'next/image';
 
+
 export const Container = styled.div`
   text-align: center;
   background: ${({ theme }) => theme.colors.white};
   padding: 25px;
   align-items: center;
   justify-content: center;
+
+  img {
+    width: 45%;
+    height: 550px;
+    border-radius: 15px;
+    object-fit: cover;
+  }
 
   h1 {
     padding: 0 25px 50px 25px;
@@ -81,3 +89,4 @@ export const StyledImage = styled(Image)`
   border-radius: 15px;
   object-fit: cover;
 `;
+

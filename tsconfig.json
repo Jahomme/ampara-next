@@ -26,7 +26,8 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts",
-    "public/assets/faqContent.js"
+    "public/assets/faqContent.js",
+    "src/components/Faq/index.tsx"
   ],
   "exclude": ["node_modules"]
 }

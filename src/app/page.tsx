@@ -1,27 +1,11 @@
-import HomeContainer from '@/components/HomeContainer';
-import Header from '@/components/Header';
-import About from '@/components/About';
-import Need from '@/components/Need';
-import Team from '@/components/Team';
-import Faq from '@/components/Faq';
-import Expect from '@/components/Expect';
-import Contact from '@/components/Contact';
-import Footer from '@/components/Footer';
+import { EmployeeData } from '@/domain/employees/employee';
+import HomePage from '@/containers/HomePage';
+import { getAllEmployees } from '@/data/employees/get-all-employees';
 
-import '@splidejs/react-splide/css';
+export type HomeProps = {
+  employees: EmployeeData[];
+};
 
 export default function Home() {
-  return (
-    <>
-      <Header />
-      <HomeContainer />
-      <About />
-      <Need />
-      <Team />
-      <Faq />
-      <Expect />
-      <Contact />
-      <Footer />
-    </>
-  );
+  return <HomePage />;
 }
