@@ -12,7 +12,7 @@ export const GetAllContents = async (query = '') => {
   const res = await fetch(`${CONTENTS_URL}${query}`, {
     headers: headers,
     next: {
-      revalidate: 3,
+      revalidate: 3600,
     },
   });
 

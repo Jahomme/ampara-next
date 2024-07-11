@@ -11,7 +11,7 @@ export const getAllEmployees = async (query = '') => {
   const res = await fetch(`${EMPLOYEES_URL}${query}`, {
     headers: headers,
     next: {
-      revalidate: 3,
+      revalidate: 3600,
     },
   });
 
