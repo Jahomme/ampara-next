@@ -39,7 +39,7 @@ export default function Team({ employees }: TeamProps) {
       <Splide options={{ perPage: slidesPerView, type: 'loop' }}>
         return (
         <>
-          {employees.map((employee) => (
+          {employees?.map((employee) => (
             <SplideSlide key={employee.id}>
               {' '}
               <Item>

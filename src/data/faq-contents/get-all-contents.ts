@@ -9,6 +9,7 @@ export type GetAllContentsProps = {
 const headers = new Headers({ Accept: 'application/json' });
 
 export const GetAllContents = async (query = '') => {
+try {
   const res = await fetch(`${CONTENTS_URL}${query}`, {
     headers: headers,
     next: {
@@ -29,4 +30,8 @@ export const GetAllContents = async (query = '') => {
   );
 
   return formattedContents;
+} catch (error) {
+  console.error(error);
+}
+
 };

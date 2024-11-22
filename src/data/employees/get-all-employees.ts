@@ -8,14 +8,18 @@ export type GetAllEmployeesProps = {
 const headers = new Headers({ Accept: 'application/json' });
 
 export const getAllEmployees = async (query = '') => {
-  const res = await fetch(`${EMPLOYEES_URL}${query}`, {
-    headers: headers,
-    next: {
-      revalidate: 3600,
-    },
-  });
+    try {
+      const res = await fetch(`${EMPLOYEES_URL}${query}`, {
+        headers: headers,
+        next: {
+          revalidate: 3600,
+        },
+      });
 
-  const employees: GetAllEmployeesProps = await res.json();
+      const employees: GetAllEmployeesProps = await res.json();
 
-  return employees.data;
+      return employees.data;
+    } catch (error) {
+      console.error(error);
+    }
 };

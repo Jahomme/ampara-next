@@ -27,7 +27,8 @@
     "**/*.tsx",
     ".next/types/**/*.ts",
     "public/assets/faqContent.js",
-    "src/components/Faq/index.tsx"
+    "src/components/Faq/index.tsx",
+    "src/components/SignUpForm"
   ],
   "exclude": ["node_modules"]
 }

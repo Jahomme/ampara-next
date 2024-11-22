@@ -33,7 +33,7 @@ export default function Faq({ contents }: FaqProps) {
       <Section>
         <h1>Saiba mais</h1>
         <BoxSection>
-          {contents.map((content) => {
+          {contents?.map((content) => {
             return (
               <Box key={content.id}>
                 <div className="contentTitle">

@@ -3,7 +3,21 @@
 import React, { useState } from 'react';
 import { MainContainer, SocialIcons, StyledArrow } from './styled';
 import { FaGooglePlusG, FaFacebookF } from 'react-icons/fa';
+import SignUpForm from '@/components/SignUpForm';
+import SignInForm from '@/components/SignInForm';
 import Link from 'next/link';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+
+const loginSchema = z.object({
+  identifier: z.string().email({ message: 'Digite um email válido' }),
+  password: z
+    .string()
+    .min(6, { message: 'A senha deve conter entre 6 e 50 caracteres' })
+    .max(50, { message: 'A senha deve conter entre 6 e 50 caracteres' }),
+});
+
+export type LoginFields = z.infer<typeof loginSchema>;
 
 export default function Login() {
   const [containerClassName, setContainerClassName] = useState('container');
@@ -28,42 +42,10 @@ export default function Login() {
       </div>
       <div className={containerClassName}>
         <div className="form-container sign-up">
-          <form>
-            <h1>Criar Conta</h1>
-            <SocialIcons>
-              <a href="#" className="icon">
-                <FaGooglePlusG size={20} color="black" />
-              </a>
-              <a href="#" className="icon">
-                <FaFacebookF size={20} color="black" />
-              </a>
-            </SocialIcons>
-            <span>ou use o seu email para cadastrar</span>
-            <input type="text" placeholder="Nome" />
-            <input type="email" placeholder="Email" />
-            <input type="text" placeholder="CPF: 000.000.000-00" />
-            <input type="text" placeholder="WhatsApp: (00) 0 0000-0000" />
-            <input type="password" placeholder="Senha" />
-            <button>Cadastrar</button>
-          </form>
+          <SignUpForm />
         </div>
         <div className="form-container sign-in">
-          <form>
-            <h1>Acessar Conta</h1>
-            <SocialIcons>
-              <a href="#" className="icon">
-                <FaGooglePlusG size={20} />
-              </a>
-              <a href="#" className="icon">
-                <FaFacebookF size={20} />
-              </a>
-            </SocialIcons>
-            <span>use o seu email senha para acessar</span>
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Senha" />
-            <a href="#">Esqueceu Sua Senha?</a>
-            <button>Acessar Plataforma</button>
-          </form>
+          <SignInForm />
         </div>
         <div className="toggle-container">
           <div className="toggle">
