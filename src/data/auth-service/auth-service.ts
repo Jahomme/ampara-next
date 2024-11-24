@@ -13,7 +13,6 @@ interface LoginUserProps {
 
 export async function registerUserService(userData: RegisterUserProps) {
   const url = new URL('/api/auth/local/register', API_URL);
-  console.log('asdasdasd');
 
   try {
     const response = await fetch(url, {

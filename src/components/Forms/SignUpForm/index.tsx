@@ -4,6 +4,9 @@ import { FaGooglePlusG, FaFacebookF } from 'react-icons/fa';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { registerUserAction } from '@/data/actions/auth-actions';
+import { UserContext } from '@/context/UserContext';
+import { useContextSelector } from 'use-context-selector';
+import { toast } from 'react-toastify';
 
 const registerSchema = z.object({
   username: z
@@ -67,10 +70,24 @@ export default function SignUpForm() {
     return numberSubstring;
   };
 
+  const userContext = useContextSelector(UserContext, (ctx) => ctx);
+
   const onSubmit: SubmitHandler<RegisterFields> = async (data) => {
     try {
       const response: any = await registerUserAction(data);
+      if (response) {
+        userContext.updateUser({
+          username: response.user.username,
+          email: response.user.email,
+          token: response.jwt,
+          user_id: response.user.id,
+          phone: response.user.phone,
+          type: response.user.type,
+        });
+        toast.success('Conta registrada.');
+      }
       if (response.strapiErrors) {
+        toast.error(response.strapiErrors.message);
         setError('root', {
           type: 'manual',
           message: response.strapiErrors.message,
@@ -116,7 +133,9 @@ export default function SignUpForm() {
       <span className="error" style={{ color: 'red', alignSelf: 'flex-start' }}>
         {errors.password?.message}
       </span>
-      <button type="submit">Cadastrar</button>
+      <button type="submit" disabled={isSubmitting}>
+        {isSubmitting ? 'Carregando...' : 'Cadastrar'}
+      </button>
       <span className="error" style={{ color: 'red', alignSelf: 'center' }}>
         {errors.root?.message}
       </span>

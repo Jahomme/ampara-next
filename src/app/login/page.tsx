@@ -3,8 +3,8 @@
 import React, { useState } from 'react';
 import { MainContainer, SocialIcons, StyledArrow } from './styled';
 import { FaGooglePlusG, FaFacebookF } from 'react-icons/fa';
-import SignUpForm from '@/components/SignUpForm';
-import SignInForm from '@/components/SignInForm';
+import SignUpForm from '@/components/Forms/SignUpForm';
+import SignInForm from '@/components/Forms/SignInForm';
 import Link from 'next/link';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';

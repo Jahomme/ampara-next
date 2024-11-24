@@ -18,7 +18,6 @@ const config = {
 export async function registerUserAction(formData: any) {
   const responseData = await registerUserService(formData);
 
-  console.log('aaaaaqa');
   if (!responseData) {
     return {
       strapiErrors: responseData.error,
@@ -32,7 +31,8 @@ export async function registerUserAction(formData: any) {
   }
 
   cookies().set('jwt', responseData.jwt);
-  //   redirect('/dashboard');
+  return responseData;
+  //redirect('/dashboard');
 }
 
 export async function loginUserAction(formData: any) {
@@ -51,6 +51,7 @@ export async function loginUserAction(formData: any) {
   }
 
   cookies().set('jwt', responseData.jwt);
+  return responseData;
   //   redirect('/dashboard');
 }
 
