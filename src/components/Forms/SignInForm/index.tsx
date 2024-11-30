@@ -11,6 +11,7 @@ import { getUserMeLoader } from '@/data/auth-service/get-user-me-loader';
 import { useContextSelector } from 'use-context-selector';
 import { UserContext } from '@/context/UserContext';
 import { toast } from 'react-toastify';
+import { redirect } from 'next/dist/server/api-utils';
 
 const loginSchema = z.object({
   identifier: z.string().email({ message: 'Digite um email válido' }),

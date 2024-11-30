@@ -43,7 +43,6 @@ export default async function HomePage() {
 
   return (
     <>
-      <Header />
       <HomeContainer />
       <About />
       <Need />

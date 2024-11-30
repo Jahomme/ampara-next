@@ -52,7 +52,7 @@ export async function loginUserAction(formData: any) {
 
   cookies().set('jwt', responseData.jwt);
   return responseData;
-  //   redirect('/dashboard');
+  //   redirect('/user_panel');
 }
 
 export async function logoutAction() {
