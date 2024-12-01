@@ -7,6 +7,7 @@ import { registerUserAction } from '@/data/actions/auth-actions';
 import { UserContext } from '@/context/UserContext';
 import { useContextSelector } from 'use-context-selector';
 import { toast } from 'react-toastify';
+import { useRouter } from 'next/navigation';
 
 const registerSchema = z.object({
   username: z
@@ -42,6 +43,8 @@ export default function SignUpForm() {
   } = useForm<RegisterFields>({
     resolver: zodResolver(registerSchema),
   });
+
+  const router = useRouter();
 
   const maskPhoneNumber = (value: string) => {
     let cleanNumber = removeNonNumber(value);
@@ -86,6 +89,11 @@ export default function SignUpForm() {
         });
         toast.success('Conta registrada.');
       }
+
+      if (response.redirectTo) {
+        router.push(response.redirectTo);
+      }
+
       if (response.strapiErrors) {
         toast.error(response.strapiErrors.message);
         setError('root', {

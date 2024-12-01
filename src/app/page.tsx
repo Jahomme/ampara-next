@@ -1,4 +1,4 @@
-import { EmployeeData } from '@/domain/employees/employee';
+import { EmployeeData } from '@/@types/employees/employee';
 import HomePage from '@/containers/HomePage';
 import { getAllEmployees } from '@/data/employees/get-all-employees';
 

@@ -1,19 +1,32 @@
 'use client';
 
 import React, { useState } from 'react';
-import { FixedButton, Nav, StyledImage } from './styled';
-import { FaBars, FaTimes, FaWhatsapp, FaUser } from 'react-icons/fa';
+import * as C from './styled';
+import {
+  FaBars,
+  FaTimes,
+  FaWhatsapp,
+  FaUser,
+  FaSignOutAlt,
+} from 'react-icons/fa';
 import Link from 'next/link';
 import { ProfileIcon } from '@/components/svg/ProfileIcon';
 import { getAuthTokenClient } from '@/utils/get-token-client';
 import { useContextSelector } from 'use-context-selector';
 import { UserContext } from '@/context/UserContext';
+import { logoutAction } from '@/data/actions/auth-actions';
+import { redirect } from 'next/navigation';
 
 const logo = require('../../../../public/assets/logo.png');
 
 export function HeaderDesktop() {
   const userContext = useContextSelector(UserContext, (ctx) => ctx);
   const token = getAuthTokenClient();
+
+  const handleLogout = () => {
+    userContext.logout();
+    logoutAction();
+  };
 
   const menuOptions = [
     { title: 'INÍCIO', ref: '#Home' },
@@ -23,9 +36,9 @@ export function HeaderDesktop() {
   ];
   return (
     <>
-      <Nav>
-        <a className="logo" title="Logo" href="#Home">
-          <StyledImage alt="Foto" src={logo}></StyledImage>
+      <C.Nav>
+        <a className="logo" title="Logo" href="/">
+          <C.StyledImage alt="Foto" src={logo}></C.StyledImage>
         </a>
         <div className="links">
           {menuOptions.map((item) => {
@@ -37,11 +50,14 @@ export function HeaderDesktop() {
           })}
 
           {token ? (
-            <Link legacyBehavior href="/perfil">
-              <button className="loginButton">
-                <ProfileIcon color="white" />
-                <span>{userContext.username}</span>
-              </button>
+            <Link legacyBehavior href="/user_panel">
+              <C.UserInfos>
+                <ProfileIcon size={32} color="white" />
+                <div>
+                  <small>Olá! {userContext.username}</small>
+                  <span>Meu painel</span>
+                </div>
+              </C.UserInfos>
             </Link>
           ) : (
             <Link legacyBehavior href="/login">
@@ -51,8 +67,13 @@ export function HeaderDesktop() {
               </button>
             </Link>
           )}
+          {!!token && (
+            <C.SignOutIcon onClick={handleLogout}>
+              <FaSignOutAlt size={20} color="white" />
+            </C.SignOutIcon>
+          )}
         </div>
-      </Nav>
+      </C.Nav>
     </>
   );
 }

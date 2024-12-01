@@ -10,12 +10,12 @@ import Footer from '@/components/Footer';
 
 import '@splidejs/react-splide/css';
 
-import { EmployeeData } from '@/domain/employees/employee';
+import { EmployeeData } from '@/@types/employees/employee';
 import { getAllEmployees } from '@/data/employees/get-all-employees';
 import {
   ContentAttributes,
   ContentData,
-} from '@/domain/faq-content/faq-content';
+} from '@/@types/faq-content/faq-content';
 import { GetAllContents } from '@/data/faq-contents/get-all-contents';
 
 export type FaqContentAttributes = ContentAttributes & {
@@ -43,6 +43,7 @@ export default async function HomePage() {
 
   return (
     <>
+      <Header />
       <HomeContainer />
       <About />
       <Need />

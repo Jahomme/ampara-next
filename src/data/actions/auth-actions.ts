@@ -1,6 +1,7 @@
 'use server';
 
 import { cookies } from 'next/headers';
+import { useRouter } from 'next/navigation';
 import { redirect } from 'next/navigation';
 import {
   loginUserService,
@@ -32,7 +33,7 @@ export async function registerUserAction(formData: any) {
 
   cookies().set('jwt', responseData.jwt);
   return responseData;
-  //redirect('/dashboard');
+  return { redirectTo: '/user_panel', ...responseData };
 }
 
 export async function loginUserAction(formData: any) {
@@ -51,7 +52,7 @@ export async function loginUserAction(formData: any) {
   }
 
   cookies().set('jwt', responseData.jwt);
-  return responseData;
+  return { redirectTo: '/user_panel', ...responseData };
   //   redirect('/user_panel');
 }
 

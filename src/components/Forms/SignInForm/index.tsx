@@ -3,6 +3,7 @@ import { SocialIcons, LoginContainer } from './styled';
 import { FaGooglePlusG, FaFacebookF } from 'react-icons/fa';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { SubmitHandler, useForm } from 'react-hook-form';
+import { useRouter } from 'next/navigation';
 import {
   loginUserAction,
   registerUserAction,
@@ -33,6 +34,7 @@ export default function SignInForm() {
     resolver: zodResolver(loginSchema),
   });
   const userContext = useContextSelector(UserContext, (ctx) => ctx);
+  const router = useRouter();
 
   const onSubmit: SubmitHandler<LoginFields> = async (data) => {
     try {
@@ -47,6 +49,10 @@ export default function SignInForm() {
           type: response.user.type,
         });
         toast.success('Login realizado.');
+      }
+
+      if (response.redirectTo) {
+        router.push(response.redirectTo);
       }
 
       if (response.strapiErrors) {

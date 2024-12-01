@@ -1,5 +1,5 @@
 import { EMPLOYEES_URL } from '../../config/app-config';
-import { EmployeeData } from '../../domain/employees/employee';
+import { EmployeeData } from '../../@types/employees/employee';
 
 export type GetAllEmployeesProps = {
   data: EmployeeData[];

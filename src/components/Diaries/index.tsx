@@ -1,19 +1,14 @@
 'use client';
 
+import { format } from 'date-fns';
 import Link from 'next/link';
 import { EyeIcon } from '../svg/EyeIcon';
 import { LoupeIcon } from '../svg/LoupeIcon';
 import * as C from './styled';
 import { FaPlus } from 'react-icons/fa';
+import { Diary, DiaryType } from '@/@types/diaries/diaries';
 
-export const DiariesContainer = () => {
-  const diariesContent: { [key: string]: string }[] = [
-    { title: 'Fulano1', date: '21/07/2024' },
-    { title: 'Fulano2', date: '21/07/2024' },
-    { title: 'Fulano3', date: '21/07/2024' },
-    { title: 'Fulano4', date: '21/07/2024' },
-  ];
-
+export const DiariesContainer = ({ diaries }: { diaries?: Diary[] }) => {
   return (
     <C.MainContainer>
       <C.Header>
@@ -35,10 +30,10 @@ export const DiariesContainer = () => {
           <C.TableHead>
             <tr>
               <th>
-                <h3>Nome da personalidade</h3>
+                <h3>Nome da Personalidade</h3>
               </th>
               <th>
-                <h3>Data de criação</h3>
+                <h3>Data de Criação</h3>
               </th>
               <th>
                 <h3>Visualizar</h3>
@@ -46,24 +41,30 @@ export const DiariesContainer = () => {
             </tr>
           </C.TableHead>
           <C.TableBody>
-            {diariesContent.map((item) => {
-              return (
-                <tr>
-                  {Object.keys(item).map((keys) => {
-                    return (
-                      <>
-                        <th>{item[keys]}</th>
-                      </>
-                    );
-                  })}
-                  <th>
-                    <button>
-                      <EyeIcon color="#6f237d" />
-                    </button>
-                  </th>
-                </tr>
-              );
-            })}
+            {diaries &&
+              diaries.map((item) => {
+                return (
+                  <tr key={item.id}>
+                    {' '}
+                    {/* Adicionando key para cada item */}
+                    <td>{item.attributes.title}</td> {/* Exibe o title */}
+                    <td>
+                      {item.attributes.createdAt
+                        ? format(
+                            new Date(item.attributes.createdAt),
+                            'dd/MM/yyyy',
+                          )
+                        : 'Data não disponível'}
+                    </td>{' '}
+                    {/* Exibe o createdAt */}
+                    <td>
+                      <button>
+                        <EyeIcon color="#6f237d" />
+                      </button>
+                    </td>
+                  </tr>
+                );
+              })}
           </C.TableBody>
         </C.Table>
       </C.TableContainer>

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { HeaderDesktop } from './Desktop/index';
 import { HeaderMobile } from './Mobile/index';
 import { FaBars, FaTimes, FaWhatsapp, FaUser } from 'react-icons/fa';
@@ -11,6 +11,15 @@ const logo = require('../../../public/assets/logo.png');
 
 export default function Header() {
   const { width } = useWindowDimensions();
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null;
+  }
 
   return (
     <>

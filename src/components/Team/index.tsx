@@ -5,7 +5,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, Info, Item, StyledImage } from './styled';
 // @ts-ignore
 import { Splide, SplideSlide } from '@splidejs/react-splide';
-import { EmployeeData } from '@/domain/employees/employee';
+import { EmployeeData } from '@/@types/employees/employee';
 
 export type TeamProps = {
   employees: EmployeeData[];

@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 import { Box, BoxSection, Container, Section } from './styled';
 import { FaPlus, FaTimes } from 'react-icons/fa';
 import { content } from '../../../public/assets/faqContent';
-import { ContentAttributes } from '../../domain/faq-content/faq-content';
+import { ContentAttributes } from '../../@types/faq-content/faq-content';
 import ReactMarkdown from 'react-markdown';
 
 export type FaqContentAttributes = ContentAttributes & {

@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export const Nav = styled.nav`
   background: ${({ theme }) => theme.colors.secondary};
-  padding: 0rem 10px;
+  padding: 0.5rem 1rem;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -32,6 +32,7 @@ export const Nav = styled.nav`
 
   .links {
     display: flex;
+    gap: 1rem;
     justify-content: center;
     align-items: center;
   }
@@ -43,7 +44,6 @@ export const Nav = styled.nav`
 
   a {
     color: #fff;
-    margin: 0 20px;
     color: white;
     font-size: 1.1rem;
     font-weight: 600;
@@ -58,9 +58,32 @@ export const Nav = styled.nav`
   }
 `;
 
+export const UserInfos = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 8px;
+  gap: 10px;
+  background-color: ${({ theme }) => theme.colors.primary};
+  cursor: pointer;
+
+  div {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    span {
+      font-weight: 600;
+    }
+  }
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.primaryDark};
+  }
+`;
+
 export const StyledImage = styled(Image)`
-  width: 12%;
-  height: 12%;
+  width: 20%;
+  height: 20%;
 `;
 
 export const FixedButton = styled.button`
@@ -78,4 +101,14 @@ export const FixedButton = styled.button`
   align-items: center;
   justify-content: center;
   z-index: 999; /* Garante que o botão esteja sempre sobre os outros elementos */
+`;
+
+export const SignOutIcon = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    cursor: pointer;
+  }
 `;

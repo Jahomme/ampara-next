@@ -17,7 +17,7 @@ export const CreateDiarieContainer = () => {
   return (
     <C.MainContainer>
       <C.Header>
-        <Link href="/user_panel/diaries/create_diarie">
+        <Link href="/user_panel/diaries">
           <button>
             <FaPlus /> Diários
           </button>
@@ -26,12 +26,6 @@ export const CreateDiarieContainer = () => {
       <C.TableContainer>
         <C.HeaderInfo>
           <h1>Novo registro</h1>
-          <C.InputContainer>
-            <input type="text" />
-            <button>
-              <LoupeIcon />
-            </button>
-          </C.InputContainer>
         </C.HeaderInfo>
       </C.TableContainer>
     </C.MainContainer>

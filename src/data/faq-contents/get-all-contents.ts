@@ -1,6 +1,6 @@
 import { markdownToHtml } from '@/utils/markdown-to-html';
 import { CONTENTS_URL } from '../../config/app-config';
-import { ContentData } from '../../domain/faq-content/faq-content';
+import { ContentData } from '../../@types/faq-content/faq-content';
 
 export type GetAllContentsProps = {
   data: ContentData[];

@@ -1,6 +1,6 @@
 import { produce } from 'immer';
 import { UserActionTypes } from './actions';
-import { User } from '@/domain/user/user';
+import { User } from '@/@types/user/user';
 
 export interface UserState extends User {}
 

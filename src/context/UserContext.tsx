@@ -1,3 +1,5 @@
+'use client';
+
 import {
   UpdateUserProps,
   logoutUserAction,
@@ -6,7 +8,7 @@ import {
 import { UserState, userReducer } from '@/reducers/user/reducer';
 import { useCallback, useEffect, useReducer } from 'react';
 import { createContext } from 'use-context-selector';
-import { User } from '@/domain/user/user';
+import { User } from '@/@types/user/user';
 import axios from 'axios';
 import { getAuthTokenClient } from '@/utils/get-token-client';
 import { getUserMeLoader } from '@/data/auth-service/get-user-me-loader';
