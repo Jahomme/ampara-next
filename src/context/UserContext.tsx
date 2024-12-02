@@ -31,7 +31,7 @@ export function UserContextProvider({
     userReducer,
     {
       username: '',
-      user_id: '',
+      user_id: 0,
       email: '',
       token: '',
       phone: '',
@@ -54,7 +54,8 @@ export function UserContextProvider({
     },
   );
 
-  const { username, email, token, phone, type } = state;
+  const { username, email, token, phone, type, user_id } = state;
+
 
   const updateUser = useCallback((user: UpdateUserProps) => {
     dispatch(updateUserAction(user));
@@ -98,6 +99,7 @@ export function UserContextProvider({
         token,
         phone,
         type,
+        user_id,
         updateUser,
         logout,
       }}
