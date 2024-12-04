@@ -7,7 +7,7 @@ import logo from '../../../../public/assets/logo.png';
 export function HeaderMobile() {
   return (
     <C.Nav>
-      <a className="logo" title="Logo" href="#Home">
+      <a className="logo" title="Logo" href="/">
         <C.StyledImage alt="Foto" src={logo}></C.StyledImage>
       </a>
       <Dialog.Root>

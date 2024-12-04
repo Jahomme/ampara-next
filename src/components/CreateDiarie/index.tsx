@@ -17,6 +17,15 @@ import { createDiaryService } from '@/data/diaries/create-diary';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/navigation';
 import { createDiaryAction } from '@/data/actions/diary-actions';
+import { RelievedIcon } from '../svg/emotions/relieved';
+import { ConvertPxToMm } from '@/utils/convert-px-to-mm';
+import { AfraidIcon } from '@/components/svg/emotions/afraid';
+import { AnxiousIcon } from '../svg/emotions/anxious';
+import { HappyIcon } from '../svg/emotions/happy';
+import { HopefulIcon } from '../svg/emotions/hopeful';
+import { GuiltyIcon } from '../svg/emotions/guilty';
+import { ConfusedIcon } from '../svg/emotions/confused';
+import { DepressedIcon } from '../svg/emotions/depressed';
 
 const createDiarySchema = z.object({
   title: z
@@ -74,7 +83,91 @@ export const CreateDiarieContainer = () => {
     setEmotions((prevstate) => [...prevstate, emotion]);
   };
 
-  const emotionsMap = ['Tristeza', 'Ansiedade', 'Raiva', 'Felicidade', 'Medo'];
+  const iconConfig = { size: 32, color: '#d85037' };
+
+  const emotionsMap = [
+    {
+      id: 1,
+      value: 'ansioso',
+      icon: (
+        <AnxiousIcon
+          size={iconConfig.size}
+          color={`${emotions.includes('ansioso') ? iconConfig.color : 'black'}`}
+        />
+      ),
+    },
+    {
+      id: 2,
+      value: 'medo',
+      icon: (
+        <AfraidIcon
+          size={iconConfig.size}
+          color={`${emotions.includes('medo') ? iconConfig.color : 'black'}`}
+        />
+      ),
+    },
+    {
+      id: 3,
+      value: 'feliz',
+      icon: (
+        <HappyIcon
+          size={iconConfig.size}
+          color={`${emotions.includes('feliz') ? iconConfig.color : 'black'}`}
+        />
+      ),
+    },
+    {
+      id: 4,
+      value: 'esperançoso',
+      icon: (
+        <HopefulIcon
+          size={iconConfig.size}
+          color={`${emotions.includes('esperançoso') ? iconConfig.color : 'black'}`}
+        />
+      ),
+    },
+    {
+      id: 5,
+      value: 'aliviado',
+      icon: (
+        <RelievedIcon
+          size={iconConfig.size}
+          color={`${emotions.includes('aliviado') ? iconConfig.color : 'black'}`}
+        />
+      ),
+    },
+    {
+      id: 6,
+      value: 'culpado',
+      icon: (
+        <GuiltyIcon
+          size={iconConfig.size}
+          color={`${emotions.includes('culpado') ? iconConfig.color : 'black'}`}
+        />
+      ),
+    },
+    {
+      id: 7,
+      value: 'confuso',
+      icon: (
+        <ConfusedIcon
+          size={iconConfig.size}
+          color={`${emotions.includes('confuso') ? iconConfig.color : 'black'}`}
+        />
+      ),
+    },
+    {
+      id: 8,
+      value: 'depressivo',
+      icon: (
+        <DepressedIcon
+          size={iconConfig.size}
+          color={`${emotions.includes('depressivo') ? iconConfig.color : 'black'}`}
+        />
+      ),
+    },
+  ];
+  //   const emotionsMap = ['tristeza', 'ansiedade', 'raiva', 'felicidade', 'medo'];
 
   useEffect(() => {
     setValue('emotions', formatedEmotions);
@@ -82,16 +175,16 @@ export const CreateDiarieContainer = () => {
 
   const onSubmit: SubmitHandler<DiaryFields> = async (data) => {
     try {
+      const userId = userContext.user_id ? [userContext.user_id] : [];
       const finalObject = {
         title: data.title,
         content: data.description,
         emotions: data.emotions,
-        // slug: gerarSlugAleatorio(data.title),
+        slug: gerarSlugAleatorio(data.title),
         users_permissions_user: {
-          connect: [userContext.user_id],
+          connect: userId,
         },
       };
-      console.log(finalObject);
       const response = await createDiaryAction({ data: { ...finalObject } });
 
       if (response.strapiErrors) {
@@ -135,11 +228,13 @@ export const CreateDiarieContainer = () => {
             <C.EmotionsWraper>
               {emotionsMap.map((item) => {
                 return (
-                  <C.EmotionIcon $active={emotions.includes(item)}>
-                    {' '}
-                    <span onClick={() => handleEmotionsChange(item)}>
-                      {item}
-                    </span>
+                  <C.EmotionIcon
+                    key={item.id}
+                    $active={emotions.includes(item.value)}
+                    onClick={() => handleEmotionsChange(item.value)}
+                    title={item.value}
+                  >
+                    {item.icon}
                   </C.EmotionIcon>
                 );
               })}

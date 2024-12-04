@@ -17,6 +17,7 @@ export type DiaryAttributes = {
   title: string;
   content: string;
   slug: string;
+  emotions: string;
   createdAt: string;
   updatedAt: string;
   publishedAt: string;

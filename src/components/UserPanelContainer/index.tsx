@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { Nav } from './styled';
+import * as C from './styled';
+import { usePathname } from 'next/navigation';
 
 export type userData = {
   id: number;
@@ -22,22 +23,26 @@ export type HeaderProps = {
 };
 
 export default function UserPanelContainer() {
+  const pathname = usePathname();
+
+  const links = [
+    // { href: '/user_panel', label: 'Listagem de Vendas' },
+    { href: '/user_panel/profile', label: 'Meu Perfil' },
+    { href: '/user_panel/diaries', label: 'Meu Diário' },
+  ];
   return (
-    <Nav>
-      <ul>
-        <li>
-          {' '}
-          <Link href="/user_panel">Listagem de Vendas</Link>
-        </li>
-        <li>
-          {' '}
-          <Link href="/user_panel/profile">Meu Perfil</Link>
-        </li>
-        <li>
-          {' '}
-          <Link href="/user_panel/diaries">Meu Diário</Link>
-        </li>
-      </ul>
-    </Nav>
+    <C.Nav>
+      <C.Ul>
+        {links.map((link) => {
+          const isActive = pathname === link.href;
+
+          return (
+            <C.Li key={link.href} $active={isActive}>
+              <Link href={link.href}>{link.label}</Link>
+            </C.Li>
+          );
+        })}
+      </C.Ul>
+    </C.Nav>
   );
 }

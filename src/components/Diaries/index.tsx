@@ -7,15 +7,19 @@ import { LoupeIcon } from '../svg/LoupeIcon';
 import * as C from './styled';
 import { FaPlus } from 'react-icons/fa';
 import { Diary, DiaryType } from '@/@types/diaries/diaries';
+import { useWindowDimensions } from '@/utils/windows_size';
 
 export const DiariesContainer = ({ diaries }: { diaries?: Diary[] }) => {
+  const handleNavigateToDiary = (id: number) => {};
+  const { width } = useWindowDimensions();
+
   return (
     <C.MainContainer>
       <C.Header>
         <h1>Diário de Personalidades</h1>
         <Link href="/user_panel/diaries/create_diarie">
           <button>
-            <FaPlus /> Adicionar novo registro
+            <FaPlus /> {width > 767 && 'Adicionar novo registro'}
           </button>
         </Link>
       </C.Header>
@@ -58,9 +62,11 @@ export const DiariesContainer = ({ diaries }: { diaries?: Diary[] }) => {
                     </td>{' '}
                     {/* Exibe o createdAt */}
                     <td>
-                      <button>
-                        <EyeIcon color="#6f237d" />
-                      </button>
+                      <Link href={`/user_panel/diaries/${item.id}`}>
+                        <button onClick={() => handleNavigateToDiary(item.id)}>
+                          <EyeIcon color="#6f237d" />
+                        </button>
+                      </Link>
                     </td>
                   </tr>
                 );

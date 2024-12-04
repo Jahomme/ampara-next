@@ -39,6 +39,45 @@ export const Overlay = styled(Dialog.Overlay)`
   background-color: rgba(31, 41, 55, 0.3);
 `;
 
+export const UserInfos = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 8px;
+  gap: 10px;
+  background-color: ${({ theme }) => theme.colors.primary};
+  cursor: pointer;
+
+  button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  div {
+    color: white;
+    display: flex;
+    flex-direction: column;
+    span {
+      font-weight: 600;
+    }
+  }
+  &:hover {
+    background-color: ${({ theme }) => theme.colors.primaryDark};
+  }
+`;
+
+export const SignOutIcon = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    cursor: pointer;
+  }
+`;
+
 // Content
 export const Content = styled(Dialog.Content)`
   position: fixed;

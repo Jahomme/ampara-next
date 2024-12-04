@@ -1,4 +1,5 @@
 import Header from '@/components/Header';
+import { ResponsiveNavContainer } from '@/components/ResponsiveNavContainer';
 import UserPanelContainer from '@/components/UserPanelContainer';
 
 export default async function DashboardLayout({
@@ -7,17 +8,18 @@ export default async function DashboardLayout({
   readonly children: React.ReactNode;
 }) {
   return (
-    <div style={{ paddingLeft: '15vw' }}>
+    <ResponsiveNavContainer>
       <Header />
       <UserPanelContainer />
       <main
         style={{
           padding: '1rem',
           marginTop: '60px',
+          marginBottom: '3rem',
         }}
       >
         {children}
       </main>
-    </div>
+    </ResponsiveNavContainer>
   );
 }

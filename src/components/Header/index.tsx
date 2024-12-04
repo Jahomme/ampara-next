@@ -24,12 +24,14 @@ export default function Header() {
   return (
     <>
       {width > 767 ? <HeaderDesktop /> : <HeaderMobile />}
-      <C.FixedButton>
-        <a href="https://wa.me/message/GLX5E6IA7AAYB1">
-          {' '}
-          <FaWhatsapp size={50} />
-        </a>
-      </C.FixedButton>
+      {width > 767 && (
+        <C.FixedButton>
+          <a href="https://wa.me/message/GLX5E6IA7AAYB1">
+            {' '}
+            <FaWhatsapp size={50} />
+          </a>
+        </C.FixedButton>
+      )}
     </>
   );
 }

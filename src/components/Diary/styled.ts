@@ -90,44 +90,39 @@ export const TableContainer = styled.div`
     font-size: 20px;
   }
 
-  form {
+  .title-container {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
 
-    .title-container {
-      display: flex;
-      flex-direction: column;
-      input {
-        width: 30%;
-        height: 1.5rem;
-        padding: 0.5rem;
-        border-radius: 3px;
-        border: solid 1px gray;
-      }
+    input {
+      width: 30%;
+      height: 1.5rem;
+      padding: 0.5rem;
+      border-radius: 3px;
+      border: solid 1px gray;
     }
+  }
 
-    .description-container {
-      display: flex;
-      flex-direction: column;
+  .description-container {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .emotions-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    input {
+      display: none;
     }
+  }
 
-    .emotions-container {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-
-      input {
-        display: none;
-      }
-    }
-
-    .button-container {
-      display: flex;
-      justify-content: end;
-      button {
-        width: 20%;
-      }
+  .button-container {
+    display: flex;
+    justify-content: end;
+    button {
+      width: 20%;
     }
   }
 `;
@@ -136,39 +131,6 @@ export const Table = styled.table``;
 
 export const EmotionIcon = styled.div<EmotionIconProps>`
   cursor: pointer;
-  color: ${(item) => (item.$active ? 'green' : 'black')};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  svg {
-    color: ${(item) => (item.$active ? 'green' : 'black')};
-    fill: ${(item) => (item.$active ? 'green' : 'black')};
-  }
-
-  &:active {
-    scale: 105%;
-    transition: cubic-bezier() 500ms;
-  }
-
-  &:hover {
-    color: green;
-  }
-
-  &:nth-child(2) {
-    transform: translateY(15%);
-  }
-
-  &:nth-child(3) {
-    transform: translateY(10%);
-  }
-
-  &:nth-child(6) {
-    transform: translateY(4%);
-  }
-  &:nth-child(7) {
-    transform: translateY(10.5%);
-  }
 `;
 
 export const EmotionsWraper = styled.div`
