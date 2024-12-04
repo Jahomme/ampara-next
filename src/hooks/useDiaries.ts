@@ -9,10 +9,13 @@ export function useDiaries(username: string) {
   useEffect(() => {
     async function fetchDiaries() {
       try {
-        const response: DiaryType = await GetDiariesByUser(
+        const response: DiaryType | undefined = await GetDiariesByUser(
           `&filters[users_permissions_user][username][$eq]=${username}`,
         );
-        setDiaries(response.data);
+
+          if (response) {
+            setDiaries(response.data);
+          }
       } catch (error) {
         console.error('Failed to fetch diaries:', error);
       } finally {

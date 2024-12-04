@@ -33,13 +33,15 @@ export type HomePageContainerProps = {
 };
 
 export default async function HomePage() {
-  const employees: EmployeeData[] = await getAllEmployees(
-    '&sort=id:asc&pagination[start]=0&pagination[limit]=6',
-  );
+  const employees: EmployeeData[] =
+    (await getAllEmployees(
+      '&sort=id:asc&pagination[start]=0&pagination[limit]=6',
+    )) || [];
 
-  const contents: FaqContentData[] = await GetAllContents(
-    '&sort=id:asc&pagination[start]=0&pagination[limit]=10',
-  );
+  const contents: FaqContentData[] =
+    (await GetAllContents(
+      '&sort=id:asc&pagination[start]=0&pagination[limit]=10',
+    )) || [];
 
   return (
     <>
