@@ -50,6 +50,16 @@ export const Section = styled.div`
     }
   }
 
+  .image {
+    margin: 2rem;
+    /* border-radius: 100%; */
+    overflow: hidden;
+
+    svg {
+      /* border-radius: 100%; */
+    }
+  }
+
   @media (max-width: 500px) {
     .image {
       width: 100%;

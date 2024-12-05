@@ -4,6 +4,7 @@ import React from 'react';
 import { Line, Container, Section, StyledImage } from './styled';
 import { FaWhatsapp, FaEnvelope, FaInstagram } from 'react-icons/fa';
 import { Unifik } from '../svg/Unifik';
+import { UnifikLogo } from '../svg/UnifikLogo';
 
 const logo = require('../../../public/assets/logo.png');
 
@@ -15,7 +16,7 @@ export default function Footer() {
       <Section>
         <div className="image">
           {' '}
-          <Unifik size={200} />
+          <UnifikLogo size={200} />
           {/* <StyledImage alt="Foto" src={logo}></StyledImage> */}
         </div>
         <div>

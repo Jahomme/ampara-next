@@ -10,6 +10,21 @@ import {
   FaRegFrown,
   FaRegFrownOpen,
 } from 'react-icons/fa';
+import { AmnesiaIcon } from '../svg/need/amnesia';
+import { DesrealizacaoIcon } from '../svg/need/desrealizacao';
+import { ComportamentosIcon } from '../svg/need/comportamentos';
+import { ConfusaoIcon } from '../svg/need/confusao';
+import { EstresseIcon } from '../svg/need/estresse';
+import { MudancasIcon } from '../svg/need/mudancas';
+
+const data = [
+  { icon: <AmnesiaIcon />, text: 'Amnésia Dissociativa' },
+  { icon: <DesrealizacaoIcon />, text: 'Desrealização' },
+  { icon: <ComportamentosIcon />, text: 'Comportamentos Inconsistentes' },
+  { icon: <ConfusaoIcon />, text: 'Sentimentos de Confusão' },
+  { icon: <EstresseIcon />, text: 'Reações Excessivas ao Estresse' },
+  { icon: <MudancasIcon />, text: 'Mudanças de Identidade' },
+];
 
 export default function Need() {
   return (
@@ -18,34 +33,12 @@ export default function Need() {
         {' '}
         <h1>Sinais de que você precisa de Terapia</h1>
         <BoxSection>
-          <Box>
-            <FaBan color="white" size={30} />
-            <p>Sua vida parece estar estagnada</p>
-          </Box>
-          <Box>
-            <FaRegFrownOpen color="white" size={30} />
-            <p>Está difícil entender seus sentimentos</p>
-          </Box>
-          <Box>
-            <FaListUl color="white" size={30} />
-            <p>Você não sabe por onde começar a mudar</p>
-          </Box>
-          <Box>
-            <FaRegAngry color="white" size={30} />
-            <p>
-              Você tem se sentido triste, irritado ou ansioso com frequência
-            </p>
-          </Box>
-          <Box>
-            <FaRegFrown color="white" size={30} />
-            <p>
-              Identifica em si mesmo sintomas de depressão ou outros transtornos
-            </p>
-          </Box>
-          <Box>
-            <FaUserFriends color="white" size={30} />
-            <p>Sua família e amigos estão preocupados com você</p>
-          </Box>
+          {data.map((item, i) => (
+            <Box key={i}>
+              {item.icon}
+              <p>{item.text}</p>
+            </Box>
+          ))}
         </BoxSection>
       </Section>
     </Container>

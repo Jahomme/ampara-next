@@ -14,8 +14,8 @@ export default async function DashboardLayout({
       <main
         style={{
           padding: '1rem',
-          marginTop: '60px',
-          marginBottom: '3rem',
+          marginTop: '4.3rem',
+          marginBottom: '4.3rem',
         }}
       >
         {children}

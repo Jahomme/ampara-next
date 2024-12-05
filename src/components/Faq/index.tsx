@@ -29,7 +29,7 @@ export default function Faq({ contents }: FaqProps) {
   };
 
   return (
-    <Container>
+    <Container id="Faq">
       <Section>
         <h1>Saiba mais</h1>
         <BoxSection>

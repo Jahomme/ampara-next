@@ -2,8 +2,8 @@ import styled from 'styled-components';
 import Image from 'next/image';
 
 export const StyledImage = styled(Image)`
-  width: 12%;
-  height: 12%;
+  /* width: 12%;
+  height: 12%; */
 `;
 
 export const Nav = styled.nav`

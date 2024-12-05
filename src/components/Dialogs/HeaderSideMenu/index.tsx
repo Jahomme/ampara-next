@@ -20,6 +20,7 @@ export function HeaderSideMenu() {
     { title: 'SOBRE NÓS', ref: '#About' },
     { title: 'EQUIPE', ref: '#Team' },
     { title: 'CONTATO', ref: '#Contact' },
+    { title: 'SAIBA MAIS', ref: '#Faq' },
   ];
   const token = getAuthTokenClient();
   const userContext = useContextSelector(UserContext, (ctx) => ctx);
@@ -43,7 +44,7 @@ export function HeaderSideMenu() {
               );
             })}
             {token ? (
-              <Link legacyBehavior href="/user_panel">
+              <Link legacyBehavior href="/user_panel/diaries">
                 <C.UserInfos>
                   <ProfileIcon size={32} color="white" />
                   <div>

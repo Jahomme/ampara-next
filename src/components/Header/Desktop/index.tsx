@@ -17,6 +17,7 @@ import { UserContext } from '@/context/UserContext';
 import { logoutAction } from '@/data/actions/auth-actions';
 import { redirect } from 'next/navigation';
 import { UnifikLogo } from '@/components/svg/UnifikLogo';
+import { Unifik } from '@/components/svg/Unifik';
 
 const logo = require('../../../../public/assets/logo.png');
 
@@ -34,12 +35,13 @@ export function HeaderDesktop() {
     { title: 'SOBRE NÓS', ref: '#About' },
     { title: 'EQUIPE', ref: '#Team' },
     { title: 'CONTATO', ref: '#Contact' },
+    { title: 'SAIBA MAIS', ref: '#Faq' },
   ];
   return (
     <>
       <C.Nav>
         <a className="logo" title="Logo" href="/">
-          <UnifikLogo size={60} />
+          <Unifik size={80} />
           {/* <C.StyledImage alt="Foto" src={logo}></C.StyledImage> */}
         </a>
         <div className="links">
@@ -52,7 +54,7 @@ export function HeaderDesktop() {
           })}
 
           {token ? (
-            <Link legacyBehavior href="/user_panel">
+            <Link legacyBehavior href="/user_panel/diaries">
               <C.UserInfos>
                 <ProfileIcon size={32} color="white" />
                 <div>

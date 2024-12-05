@@ -17,7 +17,7 @@ export const Nav = styled.nav`
   top: 60px;
   left: 0;
   bottom: 0;
-  padding: 2rem 0.5rem;
+  padding: 3.5rem 0.5rem;
 
   a {
     display: flex;

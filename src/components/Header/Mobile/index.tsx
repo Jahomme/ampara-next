@@ -4,12 +4,13 @@ import * as C from './styled';
 import { HeaderSideMenu } from '@/components/Dialogs/HeaderSideMenu';
 import logo from '../../../../public/assets/logo.png';
 import { UnifikLogo } from '@/components/svg/UnifikLogo';
+import { Unifik } from '@/components/svg/Unifik';
 
 export function HeaderMobile() {
   return (
     <C.Nav>
       <a className="logo" title="Logo" href="/">
-        <UnifikLogo size={60} />
+        <Unifik size={60} />
         {/* <C.StyledImage alt="Foto" src={logo}></C.StyledImage> */}
       </a>
       <Dialog.Root>

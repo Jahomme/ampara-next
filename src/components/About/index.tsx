@@ -7,6 +7,18 @@ export default function About() {
     <Container id="About">
       <Section>
         {' '}
+        <h1>Sobre Nós</h1>
+        <h3>
+          Bem-vindo ao nosso portal de suporte e consulta especializado em
+          Transtorno Dissociativo de Identidade (TDI). Somos a UNIFIK, e nossa
+          missão é proporcionar um espaço seguro e acolhedor para pacientes com
+          Transtorno Dissociativo de Identidade (TDI), oferecendo acesso fácil a
+          consultas com nossos especialistas dedicados ao tratamento e
+          acompanhamento desse transtorno. Nosso site foi criado com o objetivo
+          de facilitar a vida dos pacientes e seus psicólogos, oferecendo
+          ferramentas essenciais para o monitoramento e gestão do TDI. Entre os
+          recursos disponíveis, destacamos:
+        </h3>
         <h1>Nossa Missão</h1>
         <h3>
           Acreditamos que o bem-estar emocional é fundamental para o sucesso
@@ -57,19 +69,7 @@ export default function About() {
             </p>
           </li>
         </ol>
-        <h1>Sobre Nós</h1>
-        <h3>
-          Bem-vindo ao nosso portal de suporte e consulta especializado em
-          Transtorno Dissociativo de Identidade (TDI). Somos a UNIFIK, e nossa
-          missão é proporcionar um espaço seguro e acolhedor para pacientes com
-          Transtorno Dissociativo de Identidade (TDI), oferecendo acesso fácil a
-          consultas com nossos especialistas dedicados ao tratamento e
-          acompanhamento desse transtorno. Nosso site foi criado com o objetivo
-          de facilitar a vida dos pacientes e seus psicólogos, oferecendo
-          ferramentas essenciais para o monitoramento e gestão do TDI. Entre os
-          recursos disponíveis, destacamos:
-        </h3>
-        <h1>SERVIÇOS DA UNIFIK</h1>
+        <h1>Serviços da UNIFIK</h1>
         <ul>
           <li>
             <p>

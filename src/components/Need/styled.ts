@@ -43,6 +43,7 @@ export const BoxSection = styled.div`
   grid: repeat(2, 150px) / auto-flow;
 
   @media ${breakpoints.size4} {
+    gap: 2rem;
     grid: repeat(6, 100px) / auto-flow;
   }
 `;
@@ -50,13 +51,22 @@ export const BoxSection = styled.div`
 export const Box = styled.div`
   text-align: center;
   margin: 0 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   p {
     font-size: 1rem;
+    font-weight: 500;
     color: #fff;
 
     @media (max-width: 750px) {
       font-size: 0.8rem;
     }
+  }
+
+  svg {
+    fill: white;
+    height: 6rem;
   }
 `;
