@@ -7,7 +7,8 @@ export const StyledImage = styled(Image)`
 `;
 
 export const Nav = styled.nav`
-  background: ${({ theme }) => theme.colors.secondary};
+  background: ${({ theme }) => theme.colors.white};
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   padding: 0.5rem 2rem;
   display: flex;
   align-items: center;

@@ -30,7 +30,7 @@ export default function UserPanelContainer() {
   const links = [
     // { href: '/user_panel', label: 'Listagem de Vendas' },
     {
-      href: '/user_panel/profile',
+      href: '/user_panel',
       label: 'Meu Perfil',
       icon: <ProfileIcon color="white" size={24} />,
     },

@@ -18,6 +18,6 @@ export async function createDiaryAction(formData: CreateDiaryReqBodyprops) {
     };
   }
 
-  return { redirectTo: '/user_panel/diaries', ...responseData };
+  return { redirectTo: '/', ...responseData };
   //   redirect('/user_panel');
 }

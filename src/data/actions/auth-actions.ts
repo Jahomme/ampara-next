@@ -33,7 +33,6 @@ export async function registerUserAction(formData: any) {
 
   cookies().set('jwt', responseData.jwt);
   return responseData;
-  return { redirectTo: '/user_panel', ...responseData };
 }
 
 export async function loginUserAction(formData: any) {
@@ -52,7 +51,7 @@ export async function loginUserAction(formData: any) {
   }
 
   cookies().set('jwt', responseData.jwt);
-  return { redirectTo: '/user_panel', ...responseData };
+  return { redirectTo: '/', ...responseData };
   //   redirect('/user_panel');
 }
 

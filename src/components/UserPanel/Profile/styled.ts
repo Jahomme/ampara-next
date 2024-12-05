@@ -77,14 +77,55 @@ export const TableBody = styled.tbody`
   }
 `;
 
-export const TableContainer = styled.div`
+export const UserDataContainer = styled.div`
   display: flex;
-  gap: 2rem;
   flex-direction: column;
+  gap: 1rem;
+`;
+
+export const UserData = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+
+  .key {
+    font-weight: 500;
+  }
+`;
+
+export const ManageEmployees = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.5rem;
+`;
+
+export const AcceptedEmployees = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  button {
+    all: unset;
+  }
+
+  svg {
+    cursor: pointer;
+
+    &:hover {
+      scale: 105%;
+    }
+  }
+`;
+
+export const TableContainer = styled.div`
+  width: 50%;
+  display: flex;
   border-radius: 10px;
   border: gray solid 0.5px;
   color: black;
   padding: 1rem 2rem;
+  justify-content: space-between;
 
   label {
     font-size: 20px;
