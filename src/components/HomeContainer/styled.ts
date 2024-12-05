@@ -9,6 +9,27 @@ export const MainContainer = styled.div`
   justify-content: center;
   padding: 5.5rem 2rem 2rem 2rem;
   display: flex;
+
+  @media ${breakpoints.size2} {
+    flex-direction: column;
+  }
+
+  img {
+    width: 40%;
+    height: 40%;
+    margin: 75px 30px;
+
+    @media ${breakpoints.size2} {
+      width: 70%;
+      height: 70%;
+      margin: 10px 30px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding-top: 2rem;
+    overflow: auto;
+  }
 `;
 
 export const Container = styled.div`
@@ -45,6 +66,9 @@ export const Container = styled.div`
   p {
     color: ${({ theme }) => theme.colors.primary};
   }
+
+  @media (max-width: 768px) {
+  }
 `;
 
 export const StyledImage = styled(Image)`
@@ -80,6 +104,9 @@ export const Title = styled.div`
       width: 90%;
       padding: 10px 20px;
       font-size: 1rem;
+    }
+    h1 {
+      font-size: 1.5rem;
     }
   }
 
