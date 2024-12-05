@@ -31,6 +31,7 @@ export type PictureAttributes = {
     medium: PictureFormat;
     large: PictureFormat;
   };
+  url: string;
 };
 
 export type PictureFormat = {

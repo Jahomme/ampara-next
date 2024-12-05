@@ -1,14 +1,19 @@
 import styled from 'styled-components';
 import breakpoints from '../../styles/breakpoints';
 import Image from 'next/image';
+import banner from '../../../public/assets/BANNER_UNIFIK.png';
 
 export const Container = styled.div`
   background: ${({ theme }) => theme.colors.primaryDark};
-  max-width: 100%;
-  padding: 10px;
+  background-image: url(${banner.src});
+  object-fit: cover;
+  height: 500px;
+  width: 100vw;
+  padding: 10px 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 100px;
 
   @media ${breakpoints.size2} {
     flex-direction: column;
@@ -50,12 +55,16 @@ export const StyledImage = styled(Image)`
 `;
 
 export const Title = styled.div`
+  display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 90%;
   margin: 80px 30px 10px;
 
   button {
+    background-color: ${({ theme }) => theme.colors.secondary};
+    color: black;
     padding: 20px 40px;
     font-size: 1.2rem;
   }
@@ -71,8 +80,10 @@ export const Title = styled.div`
   }
 
   h1 {
+    text-align: center;
+    letter-spacing: 5px;
     margin: 25px 0px;
-    color: #fff;
+    color: black;
   }
 
   span {

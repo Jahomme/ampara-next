@@ -26,10 +26,10 @@ export default function Footer() {
               <FaWhatsapp /> 84 9 9999-9999
             </li>
             <li>
-              <FaInstagram /> @ampara_psicologia
+              <FaInstagram /> @unifik_psicologia
             </li>
             <li>
-              <FaEnvelope /> amparapsicologia@gmail.com
+              <FaEnvelope /> unifikpsicologia@gmail.com
             </li>
           </ul>
         </div>

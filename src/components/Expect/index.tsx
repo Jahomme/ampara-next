@@ -13,7 +13,7 @@ export default function Expect() {
     <Container>
       <Section>
         {' '}
-        <h1>O que esperar do processo terapêutico da AMPARA?</h1>
+        <h1>O que esperar do processo terapêutico da UNIFIK?</h1>
         <BoxSection>
           <Box>
             <FaBalanceScale color="white" size={30} />

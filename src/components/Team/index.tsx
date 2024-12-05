@@ -36,7 +36,9 @@ export default function Team({ employees }: TeamProps) {
 
   return (
     <Container>
-      <h1 id="Team">Nossa Equipe</h1>
+      <h1 id="Team" onClick={() => console.log(employees)}>
+        Nossa Equipe
+      </h1>
 
       <Splide options={{ perPage: slidesPerView, type: 'loop' }}>
         return (
@@ -47,10 +49,7 @@ export default function Team({ employees }: TeamProps) {
               <Item>
                 {' '}
                 <img
-                  src={
-                    employee.attributes.picture.data.attributes.formats.small
-                      .url
-                  }
+                  src={employee.attributes.picture.data.attributes?.url}
                   alt="Slider"
                 ></img>
                 <Info>
