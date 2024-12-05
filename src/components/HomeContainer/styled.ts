@@ -26,6 +26,7 @@ export const MainContainer = styled.div`
     }
   }
 
+
   @media (max-width: 768px) {
     padding-top: 2rem;
     overflow: auto;

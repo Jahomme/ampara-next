@@ -13,7 +13,7 @@ try {
   const res = await fetch(`${CONTENTS_URL}${query}`, {
     headers: headers,
     next: {
-      revalidate: 3600,
+      revalidate: 60 * 5,
     },
   });
 
