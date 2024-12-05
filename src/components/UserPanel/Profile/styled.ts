@@ -80,7 +80,7 @@ export const TableBody = styled.tbody`
 export const UserDataContainer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 3rem;
 `;
 
 export const UserData = styled.div`
@@ -120,6 +120,7 @@ export const AcceptedEmployees = styled.div`
 
 export const TableContainer = styled.div`
   width: 50%;
+  height: 350px;
   display: flex;
   border-radius: 10px;
   border: gray solid 0.5px;
