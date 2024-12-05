@@ -19,7 +19,7 @@ export default function HomeContainer() {
   return (
     <Container id="Home">
       <MainContainer>
-        <UnifikLogo2 size={width > 767 ? 300 : 150} />
+        <UnifikLogo2 size={width > 767 ? 350 : 150} />
         <Title>
           <h1>
             Cuidar de si é um ato de coragem. a terapia pode ser o começo de sua
