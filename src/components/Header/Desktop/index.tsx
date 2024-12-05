@@ -16,6 +16,7 @@ import { useContextSelector } from 'use-context-selector';
 import { UserContext } from '@/context/UserContext';
 import { logoutAction } from '@/data/actions/auth-actions';
 import { redirect } from 'next/navigation';
+import { UnifikLogo } from '@/components/svg/UnifikLogo';
 
 const logo = require('../../../../public/assets/logo.png');
 
@@ -38,7 +39,8 @@ export function HeaderDesktop() {
     <>
       <C.Nav>
         <a className="logo" title="Logo" href="/">
-          <C.StyledImage alt="Foto" src={logo}></C.StyledImage>
+          <UnifikLogo size={60} />
+          {/* <C.StyledImage alt="Foto" src={logo}></C.StyledImage> */}
         </a>
         <div className="links">
           {menuOptions.map((item) => {
@@ -69,7 +71,7 @@ export function HeaderDesktop() {
           )}
           {!!token && (
             <C.SignOutIcon onClick={handleLogout}>
-              <FaSignOutAlt size={20} color="white" />
+              <FaSignOutAlt size={20} color="black" />
             </C.SignOutIcon>
           )}
         </div>

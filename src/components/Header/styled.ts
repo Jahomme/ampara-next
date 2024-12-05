@@ -3,6 +3,8 @@ import Image from 'next/image';
 
 export const Nav = styled.nav`
   background: ${({ theme }) => theme.colors.secondary};
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+
   padding: 0 10px;
   display: flex;
   align-items: center;
@@ -32,7 +34,7 @@ export const Nav = styled.nav`
   }
 
   a {
-    color: #fff;
+    color: ${({ theme }) => theme.colors.primaryDark};
     margin: 0 20px;
     color: white;
     font-size: 1.1rem;

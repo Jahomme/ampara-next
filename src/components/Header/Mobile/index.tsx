@@ -3,16 +3,18 @@ import * as Dialog from '@radix-ui/react-dialog';
 import * as C from './styled';
 import { HeaderSideMenu } from '@/components/Dialogs/HeaderSideMenu';
 import logo from '../../../../public/assets/logo.png';
+import { UnifikLogo } from '@/components/svg/UnifikLogo';
 
 export function HeaderMobile() {
   return (
     <C.Nav>
       <a className="logo" title="Logo" href="/">
-        <C.StyledImage alt="Foto" src={logo}></C.StyledImage>
+        <UnifikLogo size={60} />
+        {/* <C.StyledImage alt="Foto" src={logo}></C.StyledImage> */}
       </a>
       <Dialog.Root>
         <Dialog.Trigger asChild>
-          <FaBars size={20} color="white" />
+          <FaBars size={20} color="black" />
         </Dialog.Trigger>
         <HeaderSideMenu />
       </Dialog.Root>

@@ -166,6 +166,12 @@ export const TableContainer = styled.div`
       width: 20%;
     }
   }
+
+  @media (max-width: 768px) {
+    gap: 1rem;
+    flex-direction: column;
+    width: 100%;
+  }
 `;
 
 export const Table = styled.table``;

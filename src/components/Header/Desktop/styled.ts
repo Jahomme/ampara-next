@@ -2,7 +2,9 @@ import styled from 'styled-components';
 import Image from 'next/image';
 
 export const Nav = styled.nav`
-  background: ${({ theme }) => theme.colors.secondary};
+  background: ${({ theme }) => theme.colors.white};
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  color: ${({ theme }) => theme.colors.primaryDark};
   padding: 0.5rem 1rem;
   display: flex;
   flex-direction: row;
@@ -31,6 +33,7 @@ export const Nav = styled.nav`
   }
 
   .links {
+    color: ${({ theme }) => theme.colors.primaryDark};
     display: flex;
     gap: 1rem;
     justify-content: center;
@@ -43,8 +46,7 @@ export const Nav = styled.nav`
   }
 
   a {
-    color: #fff;
-    color: white;
+    color: ${({ theme }) => theme.colors.primaryDark};
     font-size: 1.1rem;
     font-weight: 600;
 
