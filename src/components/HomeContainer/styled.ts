@@ -3,16 +3,21 @@ import breakpoints from '../../styles/breakpoints';
 import Image from 'next/image';
 import banner from '../../../public/assets/BANNER_UNIFIK.png';
 
-export const Container = styled.div`
-  background: ${({ theme }) => theme.colors.primaryDark};
-  background-image: url(${banner.src});
-  object-fit: cover;
-  height: 500px;
-  width: 100vw;
-  padding: 10px 2rem;
+export const MainContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 5.5rem 2rem 2rem 2rem;
+  display: flex;
+`;
+
+export const Container = styled.div`
+  background: ${({ theme }) => theme.colors.primaryDark};
+  background-image: url(${banner.src});
+  overflow: hidden;
+  height: 500px;
+  width: 100%;
+  /* padding: 10px 1rem; */
   margin-top: 100px;
 
   @media ${breakpoints.size2} {
@@ -22,7 +27,7 @@ export const Container = styled.div`
   img {
     width: 40%;
     height: 40%;
-    margin: 75px 30px 10px;
+    margin: 75px 30px;
 
     @media ${breakpoints.size2} {
       width: 70%;
@@ -45,7 +50,7 @@ export const Container = styled.div`
 export const StyledImage = styled(Image)`
   width: 40%;
   height: 40%;
-  margin: 75px 30px 10px;
+  margin: 75px 30px;
 
   @media ${breakpoints.size2} {
     width: 70%;
@@ -60,7 +65,6 @@ export const Title = styled.div`
   align-items: center;
   justify-content: center;
   width: 90%;
-  margin: 80px 30px 10px;
 
   button {
     background-color: ${({ theme }) => theme.colors.secondary};
