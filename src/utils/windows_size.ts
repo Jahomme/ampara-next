@@ -6,31 +6,36 @@ interface WindowDimensions {
 }
 
 export const useWindowDimensions = (): WindowDimensions => {
-  const hasWindow = typeof window !== 'undefined';
-
-  function getWindowDimensions(): WindowDimensions {
-    const width = hasWindow ? window.innerWidth : 0;
-    const height = hasWindow ? window.innerHeight : 0;
-    return {
-      width,
-      height,
-    };
-  }
-
+  // Define o estado inicial com base no lado do cliente
   const [windowDimensions, setWindowDimensions] = useState<WindowDimensions>(
-    getWindowDimensions(),
+    () => {
+      // Verifica se está no cliente antes de acessar `window`
+      if (typeof window !== 'undefined') {
+        return {
+          width: window.innerWidth,
+          height: window.innerHeight,
+        };
+      }
+      return { width: 0, height: 0 }; // valor inicial para o servidor
+    },
   );
 
   useEffect(() => {
-    function handleResize() {
-      setWindowDimensions(getWindowDimensions());
-    }
+    // Verifica se o código está sendo executado no cliente
+    if (typeof window !== 'undefined') {
+      const handleResize = () => {
+        setWindowDimensions({
+          width: window.innerWidth,
+          height: window.innerHeight,
+        });
+      };
 
-    if (hasWindow) {
       window.addEventListener('resize', handleResize);
+
+      // Remove o event listener quando o componente for desmontado
       return () => window.removeEventListener('resize', handleResize);
     }
-  }, [hasWindow]);
+  }, []); // Executa apenas uma vez após a montagem do componente
 
   return windowDimensions;
 };

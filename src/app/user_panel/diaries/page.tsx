@@ -1,11 +1,11 @@
 'use client';
 
 import { Diary, DiaryType } from '@/@types/diaries/diaries';
-import { DiariesContainer } from '@/components/Diaries';
+import { DiariesContainer } from '@/components/UserPanel/Diaries';
 import { UserContext } from '@/context/UserContext';
 import { GetDiariesByUser } from '@/data/diaries/get-diaries-by-user';
 import { getAuthTokenClient } from '@/utils/get-token-client';
-import { useWindowDimensions } from '@/utils/windows_size';
+// import { useWindowDimensions } from '@/utils/windows_size';
 import { useRouter } from 'next/navigation'; // Correção: usar o hook de navegação correto
 import { useEffect, useState } from 'react';
 import { useContextSelector } from 'use-context-selector';
@@ -47,9 +47,9 @@ export default function Diaries() {
     }
   }, [router, token, username]); // Dependências
 
-  if (loading) {
-    return <div>Carregando...</div>; // Feedback visual enquanto carrega
-  }
+  //   if (loading) {
+  //     return <div>Carregando...</div>; // Feedback visual enquanto carrega
+  //   }
 
   return <DiariesContainer diaries={diaries} />;
 }

@@ -2,8 +2,8 @@
 
 import { format } from 'date-fns';
 import Link from 'next/link';
-import { EyeIcon } from '../svg/EyeIcon';
-import { LoupeIcon } from '../svg/LoupeIcon';
+import { EyeIcon } from '../../svg/EyeIcon';
+import { LoupeIcon } from '../../svg/LoupeIcon';
 import * as C from './styled';
 import { FaPlus } from 'react-icons/fa';
 import { Diary, DiaryType } from '@/@types/diaries/diaries';

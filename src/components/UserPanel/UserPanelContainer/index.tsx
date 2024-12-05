@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import * as C from './styled';
 import { usePathname } from 'next/navigation';
+import { ProfileIcon } from '../../svg/ProfileIcon';
+import { FaStickyNote } from 'react-icons/fa';
 
 export type userData = {
   id: number;
@@ -27,8 +29,16 @@ export default function UserPanelContainer() {
 
   const links = [
     // { href: '/user_panel', label: 'Listagem de Vendas' },
-    { href: '/user_panel/profile', label: 'Meu Perfil' },
-    { href: '/user_panel/diaries', label: 'Meu Diário' },
+    {
+      href: '/user_panel/profile',
+      label: 'Meu Perfil',
+      icon: <ProfileIcon color="white" size={24} />,
+    },
+    {
+      href: '/user_panel/diaries',
+      label: 'Meu Diário',
+      icon: <FaStickyNote size={24} />,
+    },
   ];
   return (
     <C.Nav>
@@ -38,7 +48,10 @@ export default function UserPanelContainer() {
 
           return (
             <C.Li key={link.href} $active={isActive}>
-              <Link href={link.href}>{link.label}</Link>
+              <Link href={link.href}>
+                {link.icon}
+                {link.label}
+              </Link>
             </C.Li>
           );
         })}

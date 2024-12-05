@@ -138,4 +138,8 @@ export const EmotionsWraper = styled.div`
   display: flex;
 
   align-items: center;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
 `;

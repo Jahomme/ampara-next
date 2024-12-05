@@ -1,5 +1,5 @@
 import { GetDiaryById } from '@/data/diaries/get-diary-by-id';
-import { DiaryContainer } from '@/components/Diary/index';
+import { DiaryContainer } from '@/components/UserPanel/Diary/index';
 import { markdownToHtml } from '@/utils/markdown-to-html';
 
 export default async function Page({

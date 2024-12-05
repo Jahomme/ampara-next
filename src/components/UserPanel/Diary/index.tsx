@@ -1,15 +1,15 @@
 'use client';
 
 import Link from 'next/link';
-import { EyeIcon } from '../svg/EyeIcon';
-import { LoupeIcon } from '../svg/LoupeIcon';
+import { EyeIcon } from '../../svg/EyeIcon';
+import { LoupeIcon } from '../../svg/LoupeIcon';
 import * as C from './styled';
-import { ArrowIcon } from '../svg/ArrowIcon';
+import { ArrowIcon } from '../../svg/ArrowIcon';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useEffect, useState } from 'react';
-import { Tiptap } from '../Tiptap';
+import { Tiptap } from '../../Tiptap';
 import React from 'react';
 import { useContextSelector } from 'use-context-selector';
 import { UserContext } from '@/context/UserContext';
@@ -18,15 +18,15 @@ import { toast } from 'react-toastify';
 import { useRouter } from 'next/navigation';
 import { createDiaryAction } from '@/data/actions/diary-actions';
 import { UniqueDiaryType } from '@/data/diaries/get-diary-by-id';
-import { RelievedIcon } from '../svg/emotions/relieved';
+import { RelievedIcon } from '../../svg/emotions/relieved';
 import { ConvertPxToMm } from '@/utils/convert-px-to-mm';
 import { AfraidIcon } from '@/components/svg/emotions/afraid';
-import { AnxiousIcon } from '../svg/emotions/anxious';
-import { HappyIcon } from '../svg/emotions/happy';
-import { HopefulIcon } from '../svg/emotions/hopeful';
-import { GuiltyIcon } from '../svg/emotions/guilty';
-import { ConfusedIcon } from '../svg/emotions/confused';
-import { DepressedIcon } from '../svg/emotions/depressed';
+import { AnxiousIcon } from '../../svg/emotions/anxious';
+import { HappyIcon } from '../../svg/emotions/happy';
+import { HopefulIcon } from '../../svg/emotions/hopeful';
+import { GuiltyIcon } from '../../svg/emotions/guilty';
+import { ConfusedIcon } from '../../svg/emotions/confused';
+import { DepressedIcon } from '../../svg/emotions/depressed';
 
 export const DiaryContainer = ({
   diary,

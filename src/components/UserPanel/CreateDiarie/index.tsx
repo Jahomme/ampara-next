@@ -1,15 +1,15 @@
 'use client';
 
 import Link from 'next/link';
-import { EyeIcon } from '../svg/EyeIcon';
-import { LoupeIcon } from '../svg/LoupeIcon';
+import { EyeIcon } from '../../svg/EyeIcon';
+import { LoupeIcon } from '../../svg/LoupeIcon';
 import * as C from './styled';
-import { ArrowIcon } from '../svg/ArrowIcon';
+import { ArrowIcon } from '../../svg/ArrowIcon';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useEffect, useState } from 'react';
-import { Tiptap } from '../Tiptap';
+import { Tiptap } from '../../Tiptap';
 import React from 'react';
 import { useContextSelector } from 'use-context-selector';
 import { UserContext } from '@/context/UserContext';
@@ -17,15 +17,16 @@ import { createDiaryService } from '@/data/diaries/create-diary';
 import { toast } from 'react-toastify';
 import { useRouter } from 'next/navigation';
 import { createDiaryAction } from '@/data/actions/diary-actions';
-import { RelievedIcon } from '../svg/emotions/relieved';
+import { RelievedIcon } from '../../svg/emotions/relieved';
 import { ConvertPxToMm } from '@/utils/convert-px-to-mm';
 import { AfraidIcon } from '@/components/svg/emotions/afraid';
-import { AnxiousIcon } from '../svg/emotions/anxious';
-import { HappyIcon } from '../svg/emotions/happy';
-import { HopefulIcon } from '../svg/emotions/hopeful';
-import { GuiltyIcon } from '../svg/emotions/guilty';
-import { ConfusedIcon } from '../svg/emotions/confused';
-import { DepressedIcon } from '../svg/emotions/depressed';
+import { AnxiousIcon } from '../../svg/emotions/anxious';
+import { HappyIcon } from '../../svg/emotions/happy';
+import { HopefulIcon } from '../../svg/emotions/hopeful';
+import { GuiltyIcon } from '../../svg/emotions/guilty';
+import { ConfusedIcon } from '../../svg/emotions/confused';
+import { DepressedIcon } from '../../svg/emotions/depressed';
+import { useWindowDimensions } from '@/utils/windows_size';
 
 const createDiarySchema = z.object({
   title: z
@@ -54,6 +55,7 @@ export const CreateDiarieContainer = () => {
   const userContext = useContextSelector(UserContext, (ctx) => ctx);
   const [emotions, setEmotions] = useState<String[]>([]);
   const router = useRouter();
+  const { width } = useWindowDimensions();
 
   const description = watch('description');
 
@@ -228,14 +230,17 @@ export const CreateDiarieContainer = () => {
             <C.EmotionsWraper>
               {emotionsMap.map((item) => {
                 return (
-                  <C.EmotionIcon
-                    key={item.id}
-                    $active={emotions.includes(item.value)}
-                    onClick={() => handleEmotionsChange(item.value)}
-                    title={item.value}
-                  >
-                    {item.icon}
-                  </C.EmotionIcon>
+                  <>
+                    <C.EmotionIcon
+                      key={item.id}
+                      $active={emotions.includes(item.value)}
+                      onClick={() => handleEmotionsChange(item.value)}
+                      title={item.value}
+                    >
+                      {item.icon}
+                    </C.EmotionIcon>
+                    {/* {width < 768 && <span>{item.value}</span>} */}
+                  </>
                 );
               })}
             </C.EmotionsWraper>

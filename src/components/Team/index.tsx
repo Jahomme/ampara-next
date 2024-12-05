@@ -12,7 +12,9 @@ export type TeamProps = {
 };
 
 export default function Team({ employees }: TeamProps) {
-  const [slidesPerView, setSlidesPerView] = useState(2);
+    const [slidesPerView, setSlidesPerView] = useState(2);
+
+    if (typeof window === undefined) return;
 
   useEffect(() => {
     function handleResize() {

@@ -1,6 +1,6 @@
 import Header from '@/components/Header';
 import { ResponsiveNavContainer } from '@/components/ResponsiveNavContainer';
-import UserPanelContainer from '@/components/UserPanelContainer';
+import UserPanelContainer from '@/components/UserPanel/UserPanelContainer';
 
 export default async function DashboardLayout({
   children,

@@ -41,6 +41,7 @@ export const Nav = styled.nav`
   }
 
   @media (max-width: 768px) {
+    padding: 1rem;
     width: 100vw;
     height: 15vh;
     position: fixed;
@@ -54,6 +55,7 @@ export const Ul = styled.ul`
 
   @media (max-width: 768px) {
     display: flex;
+    justify-content: space-between;
   }
 `;
 
@@ -63,5 +65,22 @@ export const Li = styled.li<LiProps>`
     item.$active ? '0 4px 12px rgba(0, 0, 0, 0.15)' : ''};
   border-radius: 20px;
   margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    a {
+      font-size: 1rem;
+      flex-direction: column;
+    }
+  }
 `;
 
